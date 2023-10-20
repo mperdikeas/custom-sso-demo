@@ -1,10 +1,14 @@
 import React from 'react';
+import { Outlet } from 'react-router-dom';
+
+
 
 
 function App() {
   return (
     <div>
-      Login screen goes in here
+      <h1>CAS &hellip; Central Authentication Server</h1>
+      <Outlet/>
     </div>
   );
 }
