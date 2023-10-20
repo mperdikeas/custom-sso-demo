@@ -19,3 +19,14 @@ NB: the last line in the /etc/hosts file printed above acts as a
     other domains (and thus enhance our confidence in the rigor
     of this demo and the sanity of this approach).
 
+
+NB2: make sure you start the development servers in the following order:
+
+        1) cas
+        2) app-1
+
+This will ensure that the applications will run in the following ports as
+expected by hardcoded values in the code:
+
+        1) cas  : 3000
+        2) app-1: 3001

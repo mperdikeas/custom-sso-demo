@@ -9,7 +9,8 @@ function App() {
     if (token !== undefined) {
       set_is_token_present(true);
     } else {
-      window.location.href = 'http://login.cognitera.gr:3000/login';
+      const this_app_url ='http://app-1.cognitera.gr:3001';
+      window.location.href = 'http://login.cognitera.gr:3000/login?return_url='+encodeURIComponent(this_app_url);
     }
   }, []);
   return (
