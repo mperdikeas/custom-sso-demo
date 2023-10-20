@@ -8,10 +8,10 @@ import {
 import './index.css';
 import reportWebVitals from './reportWebVitals';
 
-import App       from './App';
-import ErrorPage from './error-page';
-import Login     from './login';
-
+import App              from './App';
+import ErrorPage        from './error-page';
+import Login            from './login';
+import ChangePassword   from './change-password';
 
 
 
@@ -26,6 +26,10 @@ const router = createBrowserRouter([
       {
         path: "login/",
         element: <Login />,
+      },
+      {
+        path: "change-password/",
+        element: <ChangePassword />
       }
     ]
   }
