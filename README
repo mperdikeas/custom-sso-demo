@@ -2,10 +2,20 @@ To run the demo you need to have the following in your [hosts] file:
 
 ---%<--------------------------------------------------------------
 
-    $ cat /etc/hosts | head -4
+    $ cat /etc/hosts | head -7
     127.0.0.1	localhost
     127.0.1.1	mp-ThinkStation-P320
     
     127.0.0.1 	login.cognitera.gr
+    127.0.0.1 	app-1.cognitera.gr
+    127.0.0.1 	app-2.cognitera.gr
+    127.0.0.1 	app-1.cognitera2.gr
+
 
 -------------------------------------------------------------->%---
+
+NB: the last line in the /etc/hosts file printed above acts as a
+    sanity test to ensure that cookie approach does not work on
+    other domains (and thus enhance our confidence in the rigor
+    of this demo and the sanity of this approach).
+
