@@ -1,5 +1,5 @@
 import React from 'react';
-import { Outlet } from 'react-router-dom';
+import { Outlet, Link } from 'react-router-dom';
 
 
 
@@ -11,10 +11,10 @@ function App() {
       <nav>
         <ul>
           <li>
-            <a href={`/login`}>Login</a>
+            <Link to={`/login`}>Login</Link>
           </li>
           <li>
-            <a href={`/change-password`}>Change password</a>
+            <Link to={`/change-password`}>Change password</Link>
           </li>
         </ul>
       </nav>
