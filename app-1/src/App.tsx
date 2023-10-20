@@ -8,6 +8,8 @@ function App() {
     const token: string | undefined = Cookies.get('cas-token');
     if (token !== undefined) {
       set_is_token_present(true);
+    } else {
+      window.location.href = 'http://login.cognitera.gr:3000/login';
     }
   }, []);
   return (
