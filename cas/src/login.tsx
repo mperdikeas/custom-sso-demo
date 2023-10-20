@@ -2,6 +2,8 @@ import React, {useCallback} from 'react';
 
 import { Button, Form, Input }  from 'antd';
 
+import Cookies from 'js-cookie';
+
 
 
 function Login() {
@@ -14,8 +16,7 @@ function Login() {
       const cookieValue = '666';
       const myDate = new Date();
       myDate.setMonth(myDate.getMonth() + 12);
-      const cookie = cookieName +"=" + cookieValue + ";expires=" + myDate + ";domain=.cognitera.gr;path=/";
-      document.cookie = cookie;
+      Cookies.set(cookieName, cookieValue, {expires: 7, domain: 'cognitera.gr'});
     } else {
 
     }
