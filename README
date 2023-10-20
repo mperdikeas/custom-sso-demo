@@ -1,0 +1,11 @@
+To run the demo you need to have the following in your [hosts] file:
+
+---%<--------------------------------------------------------------
+
+    $ cat /etc/hosts | head -4
+    127.0.0.1	localhost
+    127.0.1.1	mp-ThinkStation-P320
+    
+    127.0.0.1 	login.cognitera.gr
+
+-------------------------------------------------------------->%---
