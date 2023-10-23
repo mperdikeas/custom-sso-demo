@@ -1,10 +1,15 @@
 import {
-  getAtMostOneElement
+  getAtMostOneElement,
+  sse
 } from '../../util/util';
 
 import {
   URLStatusData
 } from '../../util/axios/status-and-data';
+
+import {
+  constants
+} from '../../constants';
 
 import {
   Login$POST$RES
@@ -14,8 +19,12 @@ import {
 type UserType = {username: string, password: string}
 
 const users: UserType[] = [
-  {username: 'admin', password: 'admin'}
+  {username:  'admin', password:  'admin'},
+  {username: 'admin2', password: 'admin2'}
 ];
+
+
+const {DURATION_OF_TOKEN_IN_SECS} = constants;
 
 
 
@@ -33,12 +42,13 @@ export function login(username: string, pwd: string): Promise<URLStatusData<Logi
       } else {
         const {password} = user;
         if (pwd === password) {
+          const expires = sse() + DURATION_OF_TOKEN_IN_SECS;
           resolve( {
             url: '/login',
             status: 200,
             data: {
               token: '42',
-              expires: -1
+              expires_SSE: expires
             }
           });
         } else {

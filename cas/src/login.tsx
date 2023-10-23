@@ -25,7 +25,8 @@ import {
   login
 } from './backend-api/login/dummy-login';
 import {
-  Login$POST$RES
+  Login$POST$RES,
+  Login$POST$RES$SUCC
 } from './backend-api/login/login.types';
 
 
@@ -71,11 +72,14 @@ function Login() {
       switch (status) {
         case 200: {
           set_login_failure(false);
+          // @ts-expect-error
+          const {data}: {data: Login$POST$RES$SUCC} = x;
+          const {token      }: {token      : string} = data;
+          const {expires_SSE}: {expires_SSE: number} = data;
           const cookieName = 'cas-token';
-          const cookieValue = '666';
-          const myDate = new Date();
-          myDate.setMonth(myDate.getMonth() + 12);
-          Cookies.set(cookieName, cookieValue, {expires: 7, domain: 'cognitera.gr'});
+          const cookieValue = token;
+          const expires_date = new Date(expires_SSE * 1000);
+          Cookies.set(cookieName, cookieValue, {expires: expires_date, domain: 'cognitera.gr'});
           if (return_url !== undefined) {
             window.location.href = return_url;
           }

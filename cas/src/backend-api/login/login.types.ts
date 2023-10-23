@@ -15,7 +15,7 @@ export type Login$POST$RES$403 = ErrorShape$A
 export type Login$POST$RES$ERR = Login$POST$RES$401 | Login$POST$RES$403
 export type Login$POST$RES$SUCC = {
   token: string
-  expires: number
+  expires_SSE: number
 }
 
 export type Login$POST$RES = Login$POST$RES$ERR | Login$POST$RES$SUCC
