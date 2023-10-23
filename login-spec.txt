@@ -2,7 +2,7 @@
 SPECIFICATION FOR THE BACKEND API OF THE LOGIN APPLICATION
 ==========================================================
 
-version: 1
+version: 2
 
 
 // @public
@@ -22,7 +22,7 @@ POST response:
 
 type LoginResultSuccess = {
   token: string
-  expires: number // seconds since the epoch when the cookie should expire
+  expires_SSE: number // seconds since the epoch when the cookie should expire
 }
 
 
