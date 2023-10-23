@@ -1,0 +1,54 @@
+
+SPECIFICATION FOR THE BACKEND API OF THE LOGIN APPLICATION
+==========================================================
+
+version: 1
+
+
+// @public
+POST /login
+
+POST payload: {username: string, password: string}
+
+POST response:
+
+1. if username / pwd is correct and has not expired return 200 with body: LoginResultSuccess
+2. if username / pwd is correct but has expired return 403 with body (JSON):
+{
+  error_code: 'must_reset_password'
+}
+3. if username / pwd is incorrect return 401 with no body
+
+
+type LoginResultSuccess = {
+  token: string
+  expires: number // seconds since the epoch when the cookie should expire
+}
+
+
+
+// @public
+POST /reset-password
+
+POST payload: {username: string, old_password: string, new_password: string}
+
+POST response:
+
+1. if username / password_old is correct then, ***regardless of whether password_old has expired or not*** do the following:
+    Check the password_new:
+    1.1 if complexity is sufficient then do the same as in /login, case #1
+    1.2 if complexity is insufficient return 403 with body (JSON):
+{
+  error_code: 'password_not_sufficiently_complex'
+  error_detail: string
+}
+
+2. if username / pwd is incorrect then do the same as in /login, case #3
+
+
+// @protected
+GET /must-reset-password
+returns boolean
+
+
+
