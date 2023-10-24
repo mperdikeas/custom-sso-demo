@@ -1,0 +1,2 @@
+npx create-react-app cas --template typescript
+npx create-react-app app-1 --template typescript
